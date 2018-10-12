@@ -37,7 +37,10 @@
             this.columnHeader_TestDataSize = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.contextMenuStrip_FPSItemList = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.showDetailsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.editStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripSeparator();
+            this.clearToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip_Main = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.loadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -51,8 +54,6 @@
             this.toolsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.replaceNewLineToNToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.splitFPSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripSeparator();
-            this.clearToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStrip_FPSItemList.SuspendLayout();
             this.menuStrip_Main.SuspendLayout();
             this.SuspendLayout();
@@ -71,10 +72,11 @@
             this.listView_Problem.FullRowSelect = true;
             this.listView_Problem.Location = new System.Drawing.Point(0, 28);
             this.listView_Problem.Name = "listView_Problem";
-            this.listView_Problem.Size = new System.Drawing.Size(800, 422);
+            this.listView_Problem.Size = new System.Drawing.Size(882, 525);
             this.listView_Problem.TabIndex = 0;
             this.listView_Problem.UseCompatibleStateImageBehavior = false;
             this.listView_Problem.View = System.Windows.Forms.View.Details;
+            this.listView_Problem.ColumnClick += new System.Windows.Forms.ColumnClickEventHandler(this.listView_Problem_ColumnClick);
             this.listView_Problem.DragDrop += new System.Windows.Forms.DragEventHandler(this.listView_Problem_DragDrop);
             this.listView_Problem.DragEnter += new System.Windows.Forms.DragEventHandler(this.listView_Problem_DragEnter);
             this.listView_Problem.DoubleClick += new System.EventHandler(this.listView_Problem_DoubleClick);
@@ -87,12 +89,12 @@
             // columnHeader_TimeLimit
             // 
             this.columnHeader_TimeLimit.Text = "TimeLimit";
-            this.columnHeader_TimeLimit.Width = 104;
+            this.columnHeader_TimeLimit.Width = 85;
             // 
             // columnHeader_MemoryLimt
             // 
             this.columnHeader_MemoryLimt.Text = "MemoryLimit";
-            this.columnHeader_MemoryLimt.Width = 107;
+            this.columnHeader_MemoryLimt.Width = 100;
             // 
             // columnHeader_TestCases
             // 
@@ -102,32 +104,51 @@
             // columnHeader_TestDataSize
             // 
             this.columnHeader_TestDataSize.Text = "DataSize";
-            this.columnHeader_TestDataSize.Width = 87;
+            this.columnHeader_TestDataSize.Width = 85;
             // 
             // contextMenuStrip_FPSItemList
             // 
             this.contextMenuStrip_FPSItemList.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.contextMenuStrip_FPSItemList.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.showDetailsToolStripMenuItem,
+            this.editStripMenuItem,
             this.deleteToolStripMenuItem,
             this.toolStripMenuItem3,
             this.clearToolStripMenuItem1});
             this.contextMenuStrip_FPSItemList.Name = "contextMenuStrip_FPSItemList";
-            this.contextMenuStrip_FPSItemList.Size = new System.Drawing.Size(211, 110);
+            this.contextMenuStrip_FPSItemList.Size = new System.Drawing.Size(172, 106);
             // 
             // showDetailsToolStripMenuItem
             // 
             this.showDetailsToolStripMenuItem.Name = "showDetailsToolStripMenuItem";
-            this.showDetailsToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
+            this.showDetailsToolStripMenuItem.Size = new System.Drawing.Size(171, 24);
             this.showDetailsToolStripMenuItem.Text = "Show Details";
             this.showDetailsToolStripMenuItem.Click += new System.EventHandler(this.showDetailsToolStripMenuItem_Click);
+            // 
+            // editStripMenuItem
+            // 
+            this.editStripMenuItem.Name = "editStripMenuItem";
+            this.editStripMenuItem.Size = new System.Drawing.Size(171, 24);
+            this.editStripMenuItem.Text = "Edit";
             // 
             // deleteToolStripMenuItem
             // 
             this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
-            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
+            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(171, 24);
             this.deleteToolStripMenuItem.Text = "Delete";
             this.deleteToolStripMenuItem.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
+            // 
+            // toolStripMenuItem3
+            // 
+            this.toolStripMenuItem3.Name = "toolStripMenuItem3";
+            this.toolStripMenuItem3.Size = new System.Drawing.Size(168, 6);
+            // 
+            // clearToolStripMenuItem1
+            // 
+            this.clearToolStripMenuItem1.Name = "clearToolStripMenuItem1";
+            this.clearToolStripMenuItem1.Size = new System.Drawing.Size(171, 24);
+            this.clearToolStripMenuItem1.Text = "Clear";
+            this.clearToolStripMenuItem1.Click += new System.EventHandler(this.clearToolStripMenuItem1_Click);
             // 
             // menuStrip_Main
             // 
@@ -138,7 +159,7 @@
             this.toolsToolStripMenuItem});
             this.menuStrip_Main.Location = new System.Drawing.Point(0, 0);
             this.menuStrip_Main.Name = "menuStrip_Main";
-            this.menuStrip_Main.Size = new System.Drawing.Size(800, 28);
+            this.menuStrip_Main.Size = new System.Drawing.Size(882, 28);
             this.menuStrip_Main.TabIndex = 1;
             this.menuStrip_Main.Text = "menuStrip1";
             // 
@@ -204,7 +225,7 @@
             // clearToolStripMenuItem
             // 
             this.clearToolStripMenuItem.Name = "clearToolStripMenuItem";
-            this.clearToolStripMenuItem.Size = new System.Drawing.Size(121, 26);
+            this.clearToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
             this.clearToolStripMenuItem.Text = "Clear";
             this.clearToolStripMenuItem.Click += new System.EventHandler(this.clearToolStripMenuItem_Click);
             // 
@@ -231,23 +252,11 @@
             this.splitFPSToolStripMenuItem.Text = "Split FPS";
             this.splitFPSToolStripMenuItem.Click += new System.EventHandler(this.splitFPSToolStripMenuItem_Click);
             // 
-            // toolStripMenuItem3
-            // 
-            this.toolStripMenuItem3.Name = "toolStripMenuItem3";
-            this.toolStripMenuItem3.Size = new System.Drawing.Size(207, 6);
-            // 
-            // clearToolStripMenuItem1
-            // 
-            this.clearToolStripMenuItem1.Name = "clearToolStripMenuItem1";
-            this.clearToolStripMenuItem1.Size = new System.Drawing.Size(210, 24);
-            this.clearToolStripMenuItem1.Text = "Clear";
-            this.clearToolStripMenuItem1.Click += new System.EventHandler(this.clearToolStripMenuItem1_Click);
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(882, 553);
             this.Controls.Add(this.listView_Problem);
             this.Controls.Add(this.menuStrip_Main);
             this.MainMenuStrip = this.menuStrip_Main;
@@ -289,6 +298,7 @@
         private System.Windows.Forms.ColumnHeader columnHeader_TestDataSize;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem3;
         private System.Windows.Forms.ToolStripMenuItem clearToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem editStripMenuItem;
     }
 }
 

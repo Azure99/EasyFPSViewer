@@ -50,6 +50,7 @@
     <Compile Include="AboutForm.Designer.cs">
       <DependentUpon>AboutForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="FPSListBinder.cs" />
     <Compile Include="Core\FPSParser.cs" />
     <Compile Include="Core\FPSViewMaker.cs" />
     <Compile Include="MainForm.cs">
