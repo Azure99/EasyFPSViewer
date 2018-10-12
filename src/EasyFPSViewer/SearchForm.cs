@@ -30,7 +30,7 @@ namespace EasyFPSViewer
             if (string.IsNullOrEmpty(textBox_Description.Text) &&
                 string.IsNullOrEmpty(textBox_Title.Text)) 
             {
-                MessageBox.Show("Keywords can not be empty.");
+                MessageBox.Show(I18N.GetStr("Keywords can not be empty."));
                 return;
             }
             Result = new Tuple<bool, string, string>(true, textBox_Title.Text, textBox_Description.Text);

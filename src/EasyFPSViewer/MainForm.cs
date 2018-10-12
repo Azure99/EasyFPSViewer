@@ -82,11 +82,11 @@ namespace EasyFPSViewer
                     {
                         new FPSParser().ConvertToStream(FPSListBinder.FPSItemList.ToArray(), fs);
                     }
-                    MessageBox.Show("Save successful!");
+                    MessageBox.Show(I18N.GetStr("Save successful!"));
                 }
                 catch
                 {
-                    MessageBox.Show("Save failed!");
+                    MessageBox.Show(I18N.GetStr("Save failed!"));
                 }
             }
         }
@@ -103,12 +103,12 @@ namespace EasyFPSViewer
 
         private void replaceNewLineToNToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            const string message =
-                "This operation will replace all NewLine Chars of TestData to \\n(Linux)\r\nAre you sure ? ";
+            string message =
+                I18N.GetStr("This operation will replace all NewLine Chars of TestData to \\n(Linux). Are you sure ? ");
             if (MessageBox.Show(message, "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 ReplaceItemsNewLineToLinux();
-                MessageBox.Show("Replace success");
+                MessageBox.Show(I18N.GetStr("Replace successful!"));
             }
         }
 
@@ -265,7 +265,7 @@ namespace EasyFPSViewer
             if (searchForm.Result.Item1)
             {
                 int count = FPSListBinder.Search(searchForm.Result.Item2, searchForm.Result.Item3);
-                MessageBox.Show(count.ToString(), "Result Count");
+                MessageBox.Show(count.ToString(), I18N.GetStr("Result Count"));
             }
             
         }

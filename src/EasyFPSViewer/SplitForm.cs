@@ -45,11 +45,11 @@ namespace EasyFPSViewer
             try
             {
                 SplitFPSFile();
-                MessageBox.Show("Split success!");
+                MessageBox.Show(I18N.GetStr("Split successful!"));
             }
             catch
             {
-                MessageBox.Show("Split failed!");
+                MessageBox.Show(I18N.GetStr("Split failed!"));
             }
         }
 
@@ -58,7 +58,7 @@ namespace EasyFPSViewer
             int size;
             if (!Int32.TryParse(textBox_Size.Text, out size))
             {
-                MessageBox.Show("Size must be a number.");
+                MessageBox.Show(I18N.GetStr("Size must be a number."));
                 return;
             }
 
@@ -96,7 +96,7 @@ namespace EasyFPSViewer
 
         private void button_Help_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Split tool can split a big FPS file to some little files.");
+            MessageBox.Show(I18N.GetStr("Split tool can split a big FPS file to some little files."));
         }
     }
 }
