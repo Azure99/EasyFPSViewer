@@ -228,6 +228,14 @@ namespace EasyFPSViewer
             }
         }
 
+        private void EditSelectedFPSItems()
+        {
+            foreach (FPSItem item in FPSListBinder.GetSelectedItems())
+            {
+                FPSListBinder.CreateEditForm(item);
+            }
+        }
+
         #endregion
 
         private void listView_Problem_ColumnClick(object sender, ColumnClickEventArgs e)
@@ -249,7 +257,7 @@ namespace EasyFPSViewer
 
         private void editToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-
+            EditSelectedFPSItems();
         }
 
         private void deleteToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -268,6 +276,28 @@ namespace EasyFPSViewer
                 MessageBox.Show(count.ToString(), I18N.GetStr("Result Count"));
             }
             
+        }
+
+        private void editStripMenuItem_Click(object sender, EventArgs e)
+        {
+            EditSelectedFPSItems();
+        }
+
+        private void addProblemToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FPSListBinder.Add(new FPSItem
+            {
+                Title = "New problem",
+                TimeLimit = 1,
+                TimeLimitUnit = "s",
+                MemoryLimit = 256,
+                MemoryLimitUnit = "mb",
+                TestInput = new string[0],
+                TestOutput = new string[0],
+                Solutions = new FPSItemSolution[0],
+                Images = new FPSItemImage[0],
+                SpecialJudge = new FPSItemSpecialJudge[0]
+            });
         }
     }
 }

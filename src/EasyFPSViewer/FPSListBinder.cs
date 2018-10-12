@@ -14,6 +14,7 @@ namespace EasyFPSViewer
         public List<FPSItem> FPSItemList { get; private set; }
         public Dictionary<FPSItem, ListViewItem> ViewItemDic { get; private set; }
         public Dictionary<FPSItem, ProblemForm> ProblemFormDic { get; private set; }
+        public Dictionary<FPSItem, EditForm> EditFormDic { get; private set; }
 
         public FPSListBinder(ListView listView)
         {
@@ -21,6 +22,7 @@ namespace EasyFPSViewer
             FPSItemList = new List<FPSItem>();
             ViewItemDic = new Dictionary<FPSItem, ListViewItem>();
             ProblemFormDic = new Dictionary<FPSItem, ProblemForm>();
+            EditFormDic = new Dictionary<FPSItem, EditForm>();
         }
 
         public void Add(FPSItem fpsItem)
@@ -104,10 +106,12 @@ namespace EasyFPSViewer
         public void Remove(FPSItem fpsItem)
         {
             CloseProblemForm(fpsItem);
+            CloseEditForm(fpsItem);
 
             ListView.Items.Remove(ViewItemDic[fpsItem]);
             ViewItemDic.Remove(fpsItem);
             ProblemFormDic.Remove(fpsItem);
+            EditFormDic.Remove(fpsItem);
 
             FPSItemList.Remove(fpsItem);
 
@@ -127,10 +131,16 @@ namespace EasyFPSViewer
                 CloseProblemForm(key);
             }
 
+            foreach (FPSItem key in EditFormDic.Keys)
+            {
+                CloseEditForm(key);
+            }
+
             ListView.Items.Clear();
             ProblemFormDic.Clear();
             ViewItemDic.Clear();
             FPSItemList.Clear();
+            EditFormDic.Clear();
 
             GC.Collect();
         }
@@ -164,6 +174,27 @@ namespace EasyFPSViewer
             if (ProblemFormDic.ContainsKey(fpsItem) && !ProblemFormDic[fpsItem].IsDisposed)
             {
                 ProblemFormDic[fpsItem].Close();
+            }
+        }
+
+        public void CreateEditForm(FPSItem fpsItem)
+        {
+            if (!EditFormDic.ContainsKey(fpsItem) || EditFormDic[fpsItem].IsDisposed)
+            {
+                EditFormDic[fpsItem] = new EditForm(fpsItem);
+                EditFormDic[fpsItem].Show();
+            }
+            else
+            {
+                EditFormDic[fpsItem].Focus();
+            }
+        }
+
+        public void CloseEditForm(FPSItem fpsItem)
+        {
+            if (EditFormDic.ContainsKey(fpsItem) && !EditFormDic[fpsItem].IsDisposed)
+            {
+                EditFormDic[fpsItem].Close();
             }
         }
     }

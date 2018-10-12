@@ -87,6 +87,7 @@
             this.Controls.Add(this.label_Description);
             this.Controls.Add(this.label_Title);
             this.Controls.Add(this.textBox_Title);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "SearchForm";
