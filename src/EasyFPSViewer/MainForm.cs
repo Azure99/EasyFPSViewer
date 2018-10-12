@@ -152,6 +152,73 @@ namespace EasyFPSViewer
                 _splitForm.Focus();
             }
         }
+
+        private void listView_Problem_ColumnClick(object sender, ColumnClickEventArgs e)
+        {
+            switch (e.Column)
+            {
+                case 0: FPSListBinder.Sort(n => n.Title); break;
+                case 1: FPSListBinder.Sort(n => n.TimeLimit); break;
+                case 2: FPSListBinder.Sort(n => n.MemoryLimit); break;
+                case 3: FPSListBinder.Sort(n => n.TestInput.Length); break;
+                case 4: FPSListBinder.Sort(n => n.TestDataSize); break;
+            }
+        }
+
+        private void showDetailsToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            ShowSelectedFPSItems();
+        }
+
+        private void editToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            EditSelectedFPSItems();
+        }
+
+        private void deleteToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            DeleteSelectedItems();
+        }
+
+        private void searchToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SearchForm searchForm = new SearchForm();
+            searchForm.ShowDialog();
+
+            if (searchForm.Result.Item1)
+            {
+                int count = FPSListBinder.Search(searchForm.Result.Item2, searchForm.Result.Item3);
+                MessageBox.Show(count.ToString(), I18N.GetStr("Result Count"));
+            }
+
+        }
+
+        private void editStripMenuItem_Click(object sender, EventArgs e)
+        {
+            EditSelectedFPSItems();
+        }
+
+        private void addProblemToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FPSListBinder.Add(new FPSItem
+            {
+                Title = "New problem",
+                TimeLimit = 1,
+                TimeLimitUnit = "s",
+                MemoryLimit = 256,
+                MemoryLimitUnit = "mb",
+                TestInput = new string[0],
+                TestOutput = new string[0],
+                Solutions = new FPSItemSolution[0],
+                Images = new FPSItemImage[0],
+                SpecialJudge = new FPSItemSpecialJudge[0]
+            });
+        }
+
+        private void bugReportStripMenuItem_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://github.com/Azure99/EasyFPSViewer/issues");
+        }
         #endregion
 
         #region Method
@@ -237,67 +304,5 @@ namespace EasyFPSViewer
         }
 
         #endregion
-
-        private void listView_Problem_ColumnClick(object sender, ColumnClickEventArgs e)
-        {
-            switch(e.Column)
-            {
-                case 0: FPSListBinder.Sort(n => n.Title); break;
-                case 1: FPSListBinder.Sort(n => n.TimeLimit); break;
-                case 2: FPSListBinder.Sort(n => n.MemoryLimit); break;
-                case 3: FPSListBinder.Sort(n => n.TestInput.Length); break;
-                case 4: FPSListBinder.Sort(n => n.TestDataSize); break;
-            }
-        }
-
-        private void showDetailsToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            ShowSelectedFPSItems();
-        }
-
-        private void editToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            EditSelectedFPSItems();
-        }
-
-        private void deleteToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            DeleteSelectedItems();
-        }
-
-        private void searchToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            SearchForm searchForm = new SearchForm();
-            searchForm.ShowDialog();
-
-            if (searchForm.Result.Item1)
-            {
-                int count = FPSListBinder.Search(searchForm.Result.Item2, searchForm.Result.Item3);
-                MessageBox.Show(count.ToString(), I18N.GetStr("Result Count"));
-            }
-            
-        }
-
-        private void editStripMenuItem_Click(object sender, EventArgs e)
-        {
-            EditSelectedFPSItems();
-        }
-
-        private void addProblemToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            FPSListBinder.Add(new FPSItem
-            {
-                Title = "New problem",
-                TimeLimit = 1,
-                TimeLimitUnit = "s",
-                MemoryLimit = 256,
-                MemoryLimitUnit = "mb",
-                TestInput = new string[0],
-                TestOutput = new string[0],
-                Solutions = new FPSItemSolution[0],
-                Images = new FPSItemImage[0],
-                SpecialJudge = new FPSItemSpecialJudge[0]
-            });
-        }
     }
 }

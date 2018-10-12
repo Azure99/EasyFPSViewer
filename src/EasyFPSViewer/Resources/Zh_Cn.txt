@@ -2,6 +2,7 @@
 File=文件
 Load=加载
 Save=保存
+Bug Report=错误反馈
 About=关于
 Exit=退出
 
