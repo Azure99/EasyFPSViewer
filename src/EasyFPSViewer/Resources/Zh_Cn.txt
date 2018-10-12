@@ -1,0 +1,21 @@
+##简体中文
+File=文件
+Load=加载
+Save=保存
+About=关于
+Exit=退出
+
+Edit=编辑
+Clear=清空
+Tools=工具
+Replace NewLine To \n=替换换行符为\n
+Split FPS=切割FPS
+
+Title=标题
+TimeLimit=时间限制
+MemoryLimit=内存限制
+TestCases=测试点数
+DataSize=数据大小
+
+Show Details=查看详情
+Delete=删除

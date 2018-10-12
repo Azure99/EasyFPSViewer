@@ -50,6 +50,7 @@
     <Compile Include="AboutForm.Designer.cs">
       <DependentUpon>AboutForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Core\I18N.cs" />
     <Compile Include="FPSListBinder.cs" />
     <Compile Include="Core\FPSParser.cs" />
     <Compile Include="Core\FPSViewMaker.cs" />
@@ -115,6 +116,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Azure99.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Zh_Cn.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

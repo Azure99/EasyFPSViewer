@@ -17,6 +17,8 @@ namespace EasyFPSViewer
         {
             InitializeComponent();
             FPSListBinder = new FPSListBinder(listView_Problem);
+            I18N.InitControl(this);
+            I18N.InitContextMenuStrip(contextMenuStrip_FPSItemList);
         }
 
         #region Event
@@ -96,7 +98,7 @@ namespace EasyFPSViewer
 
         private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            DeleteNowSelectedItems();
+            DeleteSelectedItems();
         }
 
         private void replaceNewLineToNToolStripMenuItem_Click(object sender, EventArgs e)
@@ -187,7 +189,7 @@ namespace EasyFPSViewer
             }
         }
 
-        private void DeleteNowSelectedItems()
+        private void DeleteSelectedItems()
         {
             foreach (FPSItem item in FPSListBinder.GetSelectedItems())
             {
@@ -238,6 +240,21 @@ namespace EasyFPSViewer
                 case 3: FPSListBinder.Sort(n => n.TestInput.Length); break;
                 case 4: FPSListBinder.Sort(n => n.TestDataSize); break;
             }
+        }
+
+        private void showDetailsToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            ShowSelectedFPSItems();
+        }
+
+        private void editToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void deleteToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            DeleteSelectedItems();
         }
     }
 }

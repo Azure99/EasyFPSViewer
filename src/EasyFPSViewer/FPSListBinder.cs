@@ -70,6 +70,7 @@ namespace EasyFPSViewer
 
             ListView.Items.Remove(ViewItemDic[fpsItem]);
             ViewItemDic.Remove(fpsItem);
+            ProblemFormDic.Remove(fpsItem);
 
             FPSItemList.Remove(fpsItem);
 
@@ -93,6 +94,7 @@ namespace EasyFPSViewer
             ProblemFormDic.Clear();
             ViewItemDic.Clear();
             FPSItemList.Clear();
+
             GC.Collect();
         }
 
