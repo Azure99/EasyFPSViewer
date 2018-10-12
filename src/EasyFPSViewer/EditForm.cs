@@ -49,6 +49,16 @@ namespace EasyFPSViewer
             _fpsItem.Hint = textBox_Hint.Text;
             _fpsItem.Source = textBox_Source.Text;
 
+            if (!_fpsItem.SampleInput.EndsWith("\n"))
+            {
+                _fpsItem.SampleInput += "\n";
+            }
+
+            if (!_fpsItem.SampleOutput.EndsWith("\n"))
+            {
+                _fpsItem.SampleOutput += "\n";
+            }
+
             MessageBox.Show(I18N.GetStr("Save successful!"));
             this.Close();
         }
