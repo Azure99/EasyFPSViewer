@@ -50,6 +50,8 @@
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.addProblemToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.showDetailsToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.editToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -60,8 +62,6 @@
             this.toolsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.replaceNewLineToNToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.splitFPSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.addProblemToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.contextMenuStrip_FPSItemList.SuspendLayout();
             this.menuStrip_Main.SuspendLayout();
             this.SuspendLayout();
@@ -129,33 +129,33 @@
             // showDetailsToolStripMenuItem
             // 
             this.showDetailsToolStripMenuItem.Name = "showDetailsToolStripMenuItem";
-            this.showDetailsToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
+            this.showDetailsToolStripMenuItem.Size = new System.Drawing.Size(171, 24);
             this.showDetailsToolStripMenuItem.Text = "Show Details";
             this.showDetailsToolStripMenuItem.Click += new System.EventHandler(this.showDetailsToolStripMenuItem_Click);
             // 
             // editStripMenuItem
             // 
             this.editStripMenuItem.Name = "editStripMenuItem";
-            this.editStripMenuItem.Size = new System.Drawing.Size(210, 24);
+            this.editStripMenuItem.Size = new System.Drawing.Size(171, 24);
             this.editStripMenuItem.Text = "Edit";
             this.editStripMenuItem.Click += new System.EventHandler(this.editStripMenuItem_Click);
             // 
             // deleteToolStripMenuItem
             // 
             this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
-            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
+            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(171, 24);
             this.deleteToolStripMenuItem.Text = "Delete";
             this.deleteToolStripMenuItem.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
             // 
             // toolStripMenuItem3
             // 
             this.toolStripMenuItem3.Name = "toolStripMenuItem3";
-            this.toolStripMenuItem3.Size = new System.Drawing.Size(207, 6);
+            this.toolStripMenuItem3.Size = new System.Drawing.Size(168, 6);
             // 
             // clearToolStripMenuItem1
             // 
             this.clearToolStripMenuItem1.Name = "clearToolStripMenuItem1";
-            this.clearToolStripMenuItem1.Size = new System.Drawing.Size(210, 24);
+            this.clearToolStripMenuItem1.Size = new System.Drawing.Size(171, 24);
             this.clearToolStripMenuItem1.Text = "Clear";
             this.clearToolStripMenuItem1.Click += new System.EventHandler(this.clearToolStripMenuItem1_Click);
             // 
@@ -239,6 +239,18 @@
             this.editToolStripMenuItem.Size = new System.Drawing.Size(49, 24);
             this.editToolStripMenuItem.Text = "Edit";
             // 
+            // addProblemToolStripMenuItem
+            // 
+            this.addProblemToolStripMenuItem.Name = "addProblemToolStripMenuItem";
+            this.addProblemToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.addProblemToolStripMenuItem.Text = "Add Problem";
+            this.addProblemToolStripMenuItem.Click += new System.EventHandler(this.addProblemToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(213, 6);
+            // 
             // showDetailsToolStripMenuItem1
             // 
             this.showDetailsToolStripMenuItem1.Name = "showDetailsToolStripMenuItem1";
@@ -307,18 +319,6 @@
             this.splitFPSToolStripMenuItem.Text = "Split FPS";
             this.splitFPSToolStripMenuItem.Click += new System.EventHandler(this.splitFPSToolStripMenuItem_Click);
             // 
-            // addProblemToolStripMenuItem
-            // 
-            this.addProblemToolStripMenuItem.Name = "addProblemToolStripMenuItem";
-            this.addProblemToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
-            this.addProblemToolStripMenuItem.Text = "Add Problem";
-            this.addProblemToolStripMenuItem.Click += new System.EventHandler(this.addProblemToolStripMenuItem_Click);
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(213, 6);
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
@@ -329,7 +329,7 @@
             this.MainMenuStrip = this.menuStrip_Main;
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "EasyFPSViewer v1.0";
+            this.Text = "EasyFPSViewer v1.1";
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.contextMenuStrip_FPSItemList.ResumeLayout(false);
             this.menuStrip_Main.ResumeLayout(false);
