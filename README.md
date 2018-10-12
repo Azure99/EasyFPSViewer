@@ -9,3 +9,5 @@ An easy Freeproblemset File view and edit tool.
 3. 统计题目测试数据大小
 4. 分割大FPS为多个小文件
 5. 批量替换测试数据换行符为\n
+6. 排序题目
+7. 简单编辑题目
