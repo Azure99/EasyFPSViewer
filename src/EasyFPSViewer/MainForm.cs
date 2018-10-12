@@ -256,5 +256,18 @@ namespace EasyFPSViewer
         {
             DeleteSelectedItems();
         }
+
+        private void searchToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SearchForm searchForm = new SearchForm();
+            searchForm.ShowDialog();
+
+            if (searchForm.Result.Item1)
+            {
+                int count = FPSListBinder.Search(searchForm.Result.Item2, searchForm.Result.Item3);
+                MessageBox.Show(count.ToString(), "Result Count");
+            }
+            
+        }
     }
 }

@@ -41,6 +41,43 @@ namespace EasyFPSViewer
             ViewItemDic[fpsItem] = viewItem;
         }
 
+        public int Search(string title, string description)
+        {
+            ClearSelectStatus();
+            var quary = from n in FPSItemList
+                        where n.Title.ToLower().Contains(title.ToLower())
+                        where n.Description.ToLower().Contains(description.ToLower())
+                        select n;
+
+            FPSItem firstItem = null;
+            foreach(var fpsItem in quary)
+            {
+                if (firstItem == null)
+                {
+                    firstItem = fpsItem;
+                }
+                ViewItemDic[fpsItem].Selected = true;
+            }
+
+            if (firstItem != null)
+            {
+                ViewItemDic[firstItem].EnsureVisible();
+                ViewItemDic[firstItem].Focused = true;
+            }
+
+            return quary.Count();
+        }
+
+        public void ClearSelectStatus()
+        {
+            foreach(ListViewItem item in ListView.Items)
+            {
+                if(item.Selected)
+                {
+                    item.Selected = false;
+                }
+            }
+        }
         public void Flush()
         {
             ListView.Items.Clear();

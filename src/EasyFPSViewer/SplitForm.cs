@@ -18,6 +18,7 @@ namespace EasyFPSViewer
         private SplitForm()
         {
             InitializeComponent();
+            I18N.InitControl(this);
         }
 
         public SplitForm(List<FPSItem> fpsItemList) : this()
