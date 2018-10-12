@@ -72,6 +72,8 @@ namespace EasyFPSViewer
             ViewItemDic.Remove(fpsItem);
 
             FPSItemList.Remove(fpsItem);
+
+            GC.Collect();
         }
 
         public void Sort<T>(Func<FPSItem, T> selector)
@@ -91,6 +93,7 @@ namespace EasyFPSViewer
             ProblemFormDic.Clear();
             ViewItemDic.Clear();
             FPSItemList.Clear();
+            GC.Collect();
         }
 
         public FPSItem[] GetSelectedItems()
@@ -122,7 +125,6 @@ namespace EasyFPSViewer
             if (ProblemFormDic.ContainsKey(fpsItem) && !ProblemFormDic[fpsItem].IsDisposed)
             {
                 ProblemFormDic[fpsItem].Close();
-                ProblemFormDic.Remove(fpsItem);
             }
         }
     }
