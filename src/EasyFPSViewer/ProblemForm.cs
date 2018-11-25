@@ -57,7 +57,7 @@ namespace EasyFPSViewer
                 sb.Append(random.Next(0, 10));
             }
 
-            string path = Path.GetFullPath(Path.Combine("Pages", sb.ToString()));
+            string path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Pages", sb.ToString());
             Directory.CreateDirectory(path);
 
             return path;
