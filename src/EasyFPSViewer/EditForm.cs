@@ -59,6 +59,8 @@ namespace EasyFPSViewer
                 _fpsItem.SampleOutput += "\n";
             }
 
+            MainForm.Singleton.FPSListBinder.Flush();
+
             MessageBox.Show(I18N.GetStr("Save successful!"));
             this.Close();
         }

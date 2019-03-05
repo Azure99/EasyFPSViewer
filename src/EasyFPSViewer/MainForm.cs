@@ -10,6 +10,7 @@ namespace EasyFPSViewer
     public partial class MainForm : Form
     {
         public FPSListBinder FPSListBinder { get; private set; }
+        public static MainForm Singleton { get; private set; }
 
         private AboutForm _aboutForm;
         private SplitForm _splitForm;
@@ -19,6 +20,7 @@ namespace EasyFPSViewer
             FPSListBinder = new FPSListBinder(listView_Problem);
             I18N.InitControl(this);
             I18N.InitContextMenuStrip(contextMenuStrip_FPSItemList);
+            Singleton = this;
         }
 
         #region Event
