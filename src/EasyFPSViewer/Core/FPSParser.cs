@@ -119,7 +119,7 @@ namespace EasyFPSViewer.Core
                 }
             }
 
-            int timeLimit = Int32.Parse(TryGetChildValue(itemNode, "time_limit", "1"));
+            double timeLimit = Double.Parse(TryGetChildValue(itemNode, "time_limit", "1"));
             string timeLimitUnit = TryGetChildAttrValue(itemNode, "time_limit", "unit", "s");
             int memoryLimit = Int32.Parse(TryGetChildValue(itemNode, "memory_limit", "1"));
             string memoryLimitUnit = TryGetChildAttrValue(itemNode, "memory_limit", "unit", "s");

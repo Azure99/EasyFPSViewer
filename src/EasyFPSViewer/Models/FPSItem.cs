@@ -4,7 +4,7 @@ namespace EasyFPSViewer.Models
     public class FPSItem
     {
         public string Title { get; set; } = "No Title";
-        public int TimeLimit { get; set; } = 1;
+        public double TimeLimit { get; set; } = 1;
         public string TimeLimitUnit { get; set; } = "s";
         public int MemoryLimit { get; set; } = 256;
         public string MemoryLimitUnit { get; set; } = "mb";
